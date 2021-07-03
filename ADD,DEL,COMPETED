@@ -1,0 +1,33 @@
+ADD TO-DO
+
+let addTask = function() {
+    if (taskInput.value == "") {
+        alert("Task to be added should not be empty!");
+        return;
+    }
+    let listItem = createNewTask(taskInput.value);
+    incompleteTasks.appendChild(listItem);
+    bindTaskEvents(listItem, taskCompleted);
+    taskInput.value = "";
+}
+
+DELETE TO-DO
+
+let deleteTask = function() {
+    let listItem = this.parentNode;
+    let ul = listItem.parentNode;
+    ul.removeChild(listItem);
+}
+
+COMPLETED TASK IN TO-DO
+
+let taskCompleted = function() {
+    //When the Checkbox is checked 
+    //Append the task list item to the #completed-tasks ul
+    let listItem = this.parentNode;
+    completedTasks.appendChild(listItem);
+    bindTaskEvents(listItem, taskIncomplete);
+}
+
+
+
